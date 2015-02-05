@@ -1,3 +1,3 @@
-==Recetera==
+**Recetera**
 
 A recipe app
