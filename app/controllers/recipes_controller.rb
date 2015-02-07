@@ -1,11 +1,11 @@
 class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.ingredients.build
     @recipe.save
     redirect_to :back
   end
