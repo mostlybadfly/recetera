@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
+  def index
+  end
+  
   def new
    @recipe = Recipe.new
    @recipe.ingredients.build
