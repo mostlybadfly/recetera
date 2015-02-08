@@ -1,1 +1,21 @@
 <h1> List of Recipes </h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Ingredients</th>
+    <th>Instructions</th>
+  </tr>
+
+  <% @recipes.each do |recipe| %>
+    <tr>
+      <td><%= recipe.title %></td>
+      <td>
+        <%= recipe.ingredients do |ingredient| %>
+          <%= ingredient.quantity + " " + ingredient.name %>
+        <% end %>
+      </td>
+      <td><%= recipe.instructions %></td>
+    </tr>
+  <% end %>
+</table>
