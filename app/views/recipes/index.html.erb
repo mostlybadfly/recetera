@@ -11,8 +11,8 @@
     <tr>
       <td><%= recipe.title %></td>
       <td>
-        <%= recipe.ingredients do |ingredient| %>
-          <%= ingredient.quantity + " " + ingredient.name %>
+        <% recipe.ingredients.each do |ingredient| %>
+          <%= "#{ingredient.quantity} #{ingredient.name}" %>
         <% end %>
       </td>
       <td><%= recipe.instructions %></td>
