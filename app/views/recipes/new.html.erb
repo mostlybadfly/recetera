@@ -4,7 +4,7 @@
   <%= recipe_form.label :title %>:
   <%= recipe_form.text_field :title %><br />
 
-  <%= recipe_form.fields_for :ingredient do |ingredient_fields| %>
+  <%= recipe_form.fields_for :ingredients do |ingredient_fields| %>
     <%= ingredient_fields.label :quantity %>
     <%= ingredient_fields.text_field :quantity %>
 
