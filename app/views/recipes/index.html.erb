@@ -16,6 +16,7 @@
         <% end %>
       </td>
       <td><%= recipe.instructions %></td>
+      <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
     </tr>
   <% end %>
 </table>
