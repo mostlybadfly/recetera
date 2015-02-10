@@ -17,3 +17,6 @@
 
 <%= link_to 'Back', recipes_path %>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %>
+<%= link_to 'Destoy', recipe_path(@recipe),
+    method: :delete,
+    data: { confirm: 'For real?' } %>
