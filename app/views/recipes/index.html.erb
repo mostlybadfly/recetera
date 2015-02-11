@@ -1,26 +1,20 @@
-<h1> List of Recipes </h1>
+<div class="container">
+  <div class="jumbotron">
+    <h1> List of Recipes </h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Ingredients</th>
-    <th>Instructions</th>
-  </tr>
+    <table>
+      <tr>
+        <th>Recipe#</th>
+        <th>Title</th>
+      </tr>
 
-  <% @recipes.each do |recipe| %>
-    <tr>
-      <td><%= recipe.title %></td>
-      <td>
-        <% recipe.ingredients.each do |ingredient| %>
-          <%= "#{ingredient.quantity} #{ingredient.name}" %>
-        <% end %>
-      </td>
-      <td><%= recipe.instructions %></td>
-      <td><%= link_to 'Show', recipe_path(recipe) %></td>
-      <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-      <td><%= link_to 'Destroy', recipe_path(recipe),
-              method: :delete,
-              data: { confirm: 'For real?' } %></td>
-    </tr>
-  <% end %>
-</table>
+      <% @recipes.each_with_index do |recipe, i| %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= recipe.title %></td>
+          <td><%= link_to 'Show', recipe_path(recipe) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
