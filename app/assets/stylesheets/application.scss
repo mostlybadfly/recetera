@@ -1,2 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.headline h1,h3 {
+  display: inline-block;
+}
+
+h1 {
+  margin-left: 5px
+}
+h3 {
+  float: right;
+  margin-right: 5px;
+}
+
+.nav-buttons {
+  margin: 10px;
+}
+
+.about-info {
+  margin-left: 5px
+}
