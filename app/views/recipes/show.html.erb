@@ -4,15 +4,15 @@
 </p>
 
 <p>
-  <strong>Ingredients:</strong>
+  <strong>Ingredients:</strong><br/>
   <% @recipe.ingredients.each do |ingredient| %>
-    <%= "#{ingredient.quantity} #{ingredient.name}" %>
+    <%= "#{ingredient.quantity} #{ingredient.name}" %><br/>
   <% end %>
 </p>
 
 <p>
-  <strong>Instructions:</strong>
-  <%= @recipe.instructions %>
+  <strong>Instructions:</strong><br/>
+  <%= simple_format(@recipe.instructions) %>
 </p>
 
 <%= link_to 'Back', recipes_path %>

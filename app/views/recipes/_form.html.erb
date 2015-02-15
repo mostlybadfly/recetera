@@ -1,18 +1,24 @@
-<%= form_for @recipe do |recipe_form| %>
-  <%= recipe_form.label :title %>:
-  <%= recipe_form.text_field :title %><br />
+<div class="container">
+  <div class="jumbotron">
+    <%= form_for @recipe do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>:
+        <%= f.text_field :title, :class => 'form-control' %>
+      </div>
 
-  <%= recipe_form.fields_for :ingredients do |ingredient_fields| %>
-    <%= ingredient_fields.label :quantity %>
-    <%= ingredient_fields.text_field :quantity %>
+      <div class="form-group">
+        <%= f.fields_for :ingredients do |builder| %>
+          <%= render 'ingredient_fields', f: builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Ingredient", f, :ingredients %><br/>
+      </div>
 
-    <%= ingredient_fields.label :name %>
-    <%= ingredient_fields.text_field :name %>
-  <% end %><br />
-
-  <%= recipe_form.label :instructions %>:
-  <%= recipe_form.text_area :instructions %><br />
-
-  <%= recipe_form.submit %>
-<% end %>
+      <div>
+        <%= f.label :instructions %>:
+        <%= f.text_area :instructions, :class => 'form-control', :rows => '10' %><br />
+        <%= f.submit "Submit", :class => 'btn btn-default' %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
