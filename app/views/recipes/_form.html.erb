@@ -14,8 +14,13 @@
       </div>
 
       <div>
-        <%= f.label :instructions %>:
-        <%= f.text_area :instructions, :class => 'form-control', :rows => '10' %><br />
+        <%= f.label :instructions %>:<br\>
+        <% @instructions.each do |instruction| %>
+          <%= text_field_tag 'recipe[instructions][]', instruction %><br/>
+        <% end %>
+        <%= f.fields_for :instructions do |builder| %>
+          <%= text_field_tag 'recipe[instructions][]' %>
+        <% end %>
         <%= f.submit "Submit", :class => 'btn btn-default' %>
       </div>
     <% end %>

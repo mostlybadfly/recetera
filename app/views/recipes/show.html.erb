@@ -12,7 +12,9 @@
 
 <p>
   <strong>Instructions:</strong><br/>
-  <%= simple_format(@recipe.instructions) %>
+  <% @instructions.each do |instruction| %>
+    <%= instruction %><br/>
+  <% end %>
 </p>
 
 <%= link_to 'Back', recipes_path %>

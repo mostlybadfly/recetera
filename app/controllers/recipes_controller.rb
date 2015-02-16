@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @instructions = JSON.parse(@recipe.instructions)
   end
   
   def new
@@ -14,10 +15,13 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @instructions = JSON.parse(@recipe.instructions)
   end
 
   def create
+    params[:recipe][:instructions] = params[:recipe][:instructions].to_json
     @recipe = Recipe.new(recipe_params)
+   
     if @recipe.save
       redirect_to @recipe 
     else
@@ -26,8 +30,9 @@ class RecipesController < ApplicationController
   end
 
   def update
+    params[:recipe][:instructions] = params[:recipe][:instructions].to_json
     @recipe = Recipe.find(params[:id])
-
+    
     if @recipe.update(recipe_params)
       redirect_to @recipe 
     else
@@ -46,7 +51,6 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:title, :instructions,
                                      ingredients_attributes: [:id, :_destroy,
-                                                              :name, :quantity,
-                                                              ])
+                                                              :name, :quantity])
     end
 end
