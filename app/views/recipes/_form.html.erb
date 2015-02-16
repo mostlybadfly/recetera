@@ -15,8 +15,10 @@
 
       <div>
         <%= f.label :instructions %>:<br\>
-        <% @instructions.each do |instruction| %>
-          <%= text_field_tag 'recipe[instructions][]', instruction %><br/>
+        <% unless @instructions.nil? %>
+          <% @instructions.each do |instruction| %>
+            <%= text_field_tag 'recipe[instructions][]', instruction %><br/>
+          <% end %>
         <% end %>
         <%= f.fields_for :instructions do |builder| %>
           <%= text_field_tag 'recipe[instructions][]' %>
