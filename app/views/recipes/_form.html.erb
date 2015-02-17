@@ -1,6 +1,6 @@
 <div class="container">
   <div class="jumbotron">
-    <%= form_for @recipe do |f| %>
+    <%= form_for @recipe, :class => 'recipe_form' do |f| %>
       <div class="form-group">
         <%= f.label :title %>:
         <%= f.text_field :title, :class => 'form-control' %>
@@ -13,16 +13,15 @@
         <%= link_to_add_fields "Add Ingredient", f, :ingredients %><br/>
       </div>
 
-      <div>
+      <div class="form-group">
         <%= f.label :instructions %>:<br\>
         <% unless @instructions.nil? %>
           <% @instructions.each do |instruction| %>
             <%= text_field_tag 'recipe[instructions][]', instruction %><br/>
           <% end %>
         <% end %>
-        <%= f.fields_for :instructions do |builder| %>
-          <%= text_field_tag 'recipe[instructions][]' %>
-        <% end %>
+        <%= text_field_tag 'recipe[instructions][]' %>
+        <%= link_to "Next Step", "javascript.void(0)", id: "new_step" %>
         <%= f.submit "Submit", :class => 'btn btn-default' %>
       </div>
     <% end %>
