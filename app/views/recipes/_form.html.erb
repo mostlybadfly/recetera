@@ -21,7 +21,7 @@
           <% end %>
         <% end %>
         <%= text_field_tag 'recipe[instructions][]' %>
-        <%= link_to "Next Step", "javascript.void(0)", id: "new_step" %>
+        <%= link_to "Next Step", "javascript:void(0)", id: "new_step" %>
         <%= f.submit "Submit", :class => 'btn btn-default' %>
       </div>
     <% end %>
