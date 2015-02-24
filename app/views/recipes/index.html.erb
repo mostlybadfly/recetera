@@ -1,23 +1,19 @@
-<div class="container">
-  <div class="jumbotron">
-    <h2 class="rec-list"> List of Recipes</h2><br/>
+<h2 class="page-heading">List of Recipes</h2><br/>
 
-    <table class="table table-condensed center-table">
-      <tr>
-        <th class="col-sm-2">Recipe#</th>
-        <th class="col-sm-4">Title</th>
-        <th class="col-sm-2">Link</th>
-      </tr>
+<table class="table table-condensed center-table">
+  <tr>
+    <th class="col-sm-2">Recipe#</th>
+    <th class="col-sm-4">Title</th>
+    <th class="col-sm-2">Link</th>
+  </tr>
 
-      <% @recipes.each_with_index do |recipe, i| %>
-        <tr>
-          <td><%= i+1 %></td>
-          <td><%= recipe.title %></td>
-          <td><%= link_to 'View Recipe', recipe_path(recipe) %></td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
-    <%= link_to 'New recipe', new_recipe_path, 
-                              :class => "btn btn-primary btn-lg" %>
-</div>
+  <% @recipes.each_with_index do |recipe, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= recipe.title %></td>
+      <td><%= link_to 'View Recipe', recipe_path(recipe) %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+<%= link_to 'New recipe', new_recipe_path, :class => "btn btn-info" %>

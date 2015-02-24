@@ -1,24 +1,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.headline h1,h3 {
-  display: inline-block;
+.navbar-default {
+ background-color: #9F1536;
+ border-color: #B26577;
+} 
+
+.navbar.navbar-default li a {
+  color: #E9DC19;
 }
 
-h1 {
-  margin-left: 5px
-}
-h3 {
-  float: right;
-  margin-right: 5px;
+.navbar-default .navbar-brand {
+  color: #E9DC19;
 }
 
-.nav-buttons {
-  margin: 10px;
+body {
+  background-color: #277F9E;
 }
 
-.about-info {
-  margin-left: 5px
+.jumbotron {
+  background-color: aliceblue;
 }
 
 label {
@@ -31,6 +32,10 @@ label {
   width: 80% !important;
 }
 
-.rec-list {
+.page-heading {
   text-align: center;
+}
+
+.gitlink {
+  color: #B26577;
 }

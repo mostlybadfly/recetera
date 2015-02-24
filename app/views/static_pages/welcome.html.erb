@@ -1,15 +1,7 @@
-<div class="container">
-  <div class="jumbotron">
-    <h1>Welcome to Recetera!</h1>
-    <p>This is a recipe-making app, check back soon for more updates!</p>
-      <p class="nav-buttons">
-      <%= link_to 'New recipe', new_recipe_path, 
-                                :class => "btn btn-primary btn-lg" %>
-      <%= link_to 'All recipes', recipes_path, 
-                                :class => "btn btn-primary btn-lg"  %>
-      </p>
-  </div>
-</div>
+<h2 class="page-heading">Welcome to Recetera!</h2>
+<br/>
+<p>This is a recipe-making app, check back soon for more updates!</p>
+<br/>
+<%= link_to 'New recipe', new_recipe_path, :class => "btn btn-info"  %>
 
-
-
+<%= link_to 'All recipes', recipes_path, :class => "btn btn-info"  %>
