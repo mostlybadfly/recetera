@@ -1,18 +1,19 @@
 <div class="container">
   <div class="jumbotron">
-    <h1> List of Recipes </h1>
+    <h2 class="rec-list"> List of Recipes</h2><br/>
 
-    <table>
+    <table class="table table-condensed center-table">
       <tr>
-        <th>Recipe#</th>
-        <th>Title</th>
+        <th class="col-sm-2">Recipe#</th>
+        <th class="col-sm-4">Title</th>
+        <th class="col-sm-2">Link</th>
       </tr>
 
       <% @recipes.each_with_index do |recipe, i| %>
         <tr>
           <td><%= i+1 %></td>
           <td><%= recipe.title %></td>
-          <td><%= link_to 'Show', recipe_path(recipe) %></td>
+          <td><%= link_to 'View Recipe', recipe_path(recipe) %></td>
         </tr>
       <% end %>
     </table>
