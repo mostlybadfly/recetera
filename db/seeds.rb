@@ -1,6 +1,3 @@
-User.create!([
-  {email: "test@test.com", encrypted_password: "$2a$10$650uIaxKcf.NfG2n35y6Q.uTjOwXeZrt65l.ZRhRUaZGQc9xOwtLW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-03-10 17:54:32", last_sign_in_at: "2015-03-10 17:54:32", current_sign_in_ip: "10.0.2.2", last_sign_in_ip: "10.0.2.2"}
-])
 Ingredient.create!([
   {recipe_id: 1, name: "Chicken", quantity: "1 whole"},
   {recipe_id: 1, name: "Carrots", quantity: "2 cups"},
