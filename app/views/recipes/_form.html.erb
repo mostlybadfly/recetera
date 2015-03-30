@@ -36,11 +36,11 @@
     <% end %>
     <div id="recipe_steps">
       <%= text_field_tag 'recipe[instructions][]', nil, class: 'form-control', placeholder: 'Type the first step' %>
-    </div>
-  </div>
-  <%= link_to "Next Step", "javascript:void(0)", id: "new_step" %><br/>
-  <%= link_to "Remove Step", "javascript:void(0)", id: "remove_step" %>
-  <div class="form-group"><br/>
+     <%= link_to "Remove Step", "javascript:void(0)", class: "remove_step" %>
+   </div>
+    <%= link_to "Next Step", "javascript:void(0)", id: "new_step" %><br/>
+</div>
+     <div class="form-group"><br/>
     <%= f.submit "Submit", :class => 'btn btn-default' %>
   </div>
 <% end %>
