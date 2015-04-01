@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304234755) do
+ActiveRecord::Schema.define(version: 20150401005632) do
 
   create_table "ingredients", force: true do |t|
     t.integer  "recipe_id"
     t.string   "name"
-    t.string   "quantity"
+    t.integer  "quantity",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "measurement"
   end
 
   create_table "recipes", force: true do |t|
