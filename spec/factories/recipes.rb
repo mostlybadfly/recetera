@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :recipe do
-    title "Apple Pie"
+    title Faker::Lorem.words(1..10).map(&:titlecase).join(' ')
     instructions "Peel the apples."
     factory :recipe_with_ingredients do
       after(:build) do |recipe|

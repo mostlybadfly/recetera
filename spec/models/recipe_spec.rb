@@ -2,11 +2,11 @@ require 'rails_helper'
 describe Recipe do
   it "has a valid factory" do
     expect(build(:recipe_with_ingredients)).to be_valid
-    binding.pry
   end
 
   it "is valid with a title, ingredient, and instructions" do
     recipe = build(:recipe_with_ingredients)
+    puts recipe.title
     expect(recipe).to be_valid
   end
   it "is invalid without a title" do
