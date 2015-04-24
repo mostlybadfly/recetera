@@ -1,5 +1,10 @@
-class Ingredient < ActiveRecord::Base
-  belongs_to :recipe
-  validates :quantity, presence: true
-  validates :name, presence: true
+class Ingredient
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  field :measurement, type: Integer
+  field :quantity, type: String
+  field :name, type: String
+  
+  embedded_in :recipe
 end

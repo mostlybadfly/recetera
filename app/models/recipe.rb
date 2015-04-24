@@ -1,7 +1,11 @@
-class Recipe < ActiveRecord::Base
-  has_many :ingredients
-  validates :title, presence: true
-  validates :instructions, presence: true
+class Recipe
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  accepts_nested_attributes_for :ingredients, allow_destroy: true
+  field :title, type: String
+  field :instructions, type: String
+
+  embeds_many :ingredients
+
+  #accepts_nested_attributes_for :ingredients, allow_destroy: true
 end
