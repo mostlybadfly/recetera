@@ -1,3 +1,4 @@
+=begin
 Ingredient.create!([
   {recipe_id: 1, name: "Chicken", quantity: "1 whole"},
   {recipe_id: 1, name: "Carrots", quantity: "2 cups"},
@@ -26,3 +27,4 @@ Recipe.create!([
   {title: "Apple Pie", instructions: "[\"Combine flour and butter, adding a bit of water to make dough\",\"Chill dough\",\"Roll out dough and place in a pie dish\",\"Peel and slice apples, toss with sugar and cinnamon, add to pie dish\",\"Bake at 350F for 25 min\"]"},
   {title: "Ham Sandwich", instructions: "[\"Spread mayo on bread\",\"Add Ham and Cheddar\",\"Close up the Sandwich\",\"EAT IT\"]"}
 ])
+=end
