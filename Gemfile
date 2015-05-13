@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.0"
+
 gem 'cocoon'
 gem 'seed_dump'
 gem 'devise'
@@ -27,4 +29,6 @@ group :test do
   gem "launchy", "~> 2.4.2"
   gem "selenium-webdriver", "~> 2.43.0"
 end
+
+gem 'rails_12factor', group: :production
 
