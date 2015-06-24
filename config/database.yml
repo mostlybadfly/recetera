@@ -14,8 +14,8 @@ default: &default
 development:
   <<: *default
   database: recetera_development
-  username: recetera
-  password: test1234
+  username: postgres
+  password: postgres
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,6 +23,6 @@ development:
 test:
   <<: *default
   database: recetera_test
-  username: recetera
-  password: test1234
+  username: postgres
+  password: postgres
 
