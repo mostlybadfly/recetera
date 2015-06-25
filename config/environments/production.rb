@@ -1,6 +1,19 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'boiling-shelf-7458.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV['EMAIL_DOMAIN'],
+    autentication: "plain",
+    user_name: ENV['EMAIL_USERNAME'],
+    password: ENV['EMAIL_PASSWORD'],
+    enable_starttls_auto: true
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 

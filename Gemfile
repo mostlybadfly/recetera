@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
+ruby "2.2.0"
+
 gem 'cocoon'
 gem 'seed_dump'
 gem 'devise'
 gem 'rails', '4.1.4'
-gem 'sqlite3'
+gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -27,4 +29,6 @@ group :test do
   gem "launchy", "~> 2.4.2"
   gem "selenium-webdriver", "~> 2.43.0"
 end
+
+gem 'rails_12factor', group: :production
 

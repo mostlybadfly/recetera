@@ -18,7 +18,7 @@
 <br/>
 <%= link_to 'Back', recipes_path, class: "btn btn-default" %>
 <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-info" %>
-<%= link_to 'Destoy', recipe_path(@recipe),
+<%= link_to 'Destroy', recipe_path(@recipe),
     method: :delete,
     data: { confirm: 'For real?' },
     class: "btn btn-danger" %>
