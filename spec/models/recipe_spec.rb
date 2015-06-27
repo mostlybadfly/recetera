@@ -6,7 +6,6 @@ describe Recipe do
 
   it "is valid with a title, ingredient, and instructions" do
     recipe = build(:recipe_with_ingredients)
-    puts recipe.title
     expect(recipe).to be_valid
   end
   it "is invalid without a title" do

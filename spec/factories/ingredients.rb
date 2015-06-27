@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :ingredient do
     association :recipe
-    quantity "1"
-    measurement "Dozen"
-    name "Apples"
+    quantity Faker::Number.number(3)
+    measurement Faker::Lorem.word
+    name  Faker::Lorem.word 
   end
 end
