@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
 
   def create
     params[:recipe][:instructions] = params[:recipe][:instructions].to_json
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
    
     if @recipe.save
       redirect_to @recipe 
