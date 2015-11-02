@@ -5,7 +5,7 @@
 <p>
   <strong>Ingredients:</strong><br/>
   <% @recipe.ingredients.each do |ingredient| %>
-    <%= "#{ingredient.quantity} #{ingredient.measurement} #{ingredient.name}" %><br/>
+    <%= "#{ingredient.name}" %><br/>
   <% end %>
 </p>
 
