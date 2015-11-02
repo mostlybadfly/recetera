@@ -1,5 +1,9 @@
 <div class="nested-fields form-inline">
+  <%= f.label :amount %>
+  <%= f.text_field :amount, :class => 'form-control' %>
+
   <%= f.label :name %>
   <%= f.text_field :name, :class => 'form-control' %>
+
   <%= link_to_remove_association "remove ingredient", f %>
 </div>
