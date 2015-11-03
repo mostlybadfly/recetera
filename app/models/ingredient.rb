@@ -1,4 +1,4 @@
 class Ingredient < ActiveRecord::Base
   has_many :recipe_items
-  validates :name, presence: true
+  has_many :recipes, through: :recipe_items
 end

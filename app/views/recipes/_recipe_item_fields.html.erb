@@ -2,8 +2,10 @@
   <%= f.label :amount %>
   <%= f.text_field :amount, :class => 'form-control' %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, :class => 'form-control' %>
+  <%= f.fields_for :ingredients do |recipe_ingredient| %>
+    <%= recipe_ingredient.label :name %>
+    <%= recipe_ingredient.text_field :name, :class => 'form-control' %>
+  <% end %>
 
   <%= link_to_remove_association "remove ingredient", f %>
 </div>
