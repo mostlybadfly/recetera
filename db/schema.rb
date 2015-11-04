@@ -11,12 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716174011) do
+ActiveRecord::Schema.define(version: 20151104184214) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "ingredients", force: true do |t|
+  create_table "ingredients", force: :cascade do |t|
     t.integer  "recipe_id"
     t.string   "name"
     t.integer  "quantity"
@@ -25,7 +22,19 @@ ActiveRecord::Schema.define(version: 20150716174011) do
     t.string   "measurement"
   end
 
-  create_table "recipes", force: true do |t|
+  create_table "recipe_items", force: :cascade do |t|
+    t.integer  "amount"
+    t.integer  "user_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "recipe_id"
+  end
+
+  add_index "recipe_items", ["ingredient_id"], name: "index_recipe_items_on_ingredient_id"
+  add_index "recipe_items", ["user_id"], name: "index_recipe_items_on_user_id"
+
+  create_table "recipes", force: :cascade do |t|
     t.string   "title"
     t.text     "instructions"
     t.datetime "created_at"
@@ -33,9 +42,9 @@ ActiveRecord::Schema.define(version: 20150716174011) do
     t.integer  "user_id"
   end
 
-  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -50,7 +59,7 @@ ActiveRecord::Schema.define(version: 20150716174011) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
