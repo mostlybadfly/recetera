@@ -4,5 +4,6 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :recipe_items
   validates :title, presence: true
   validates :instructions, presence: true
+  accepts_nested_attributes_for :ingredients
   accepts_nested_attributes_for :recipe_items
 end
