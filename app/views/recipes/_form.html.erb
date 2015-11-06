@@ -19,10 +19,10 @@
 
   <div id="ingredients" class="form-group">
     <label>Ingredients:</label>
-    <%= f.fields_for :ingredients do |builder| %>
-      <%= render 'ingredient_fields', f: builder %>
+    <%= f.fields_for :recipe_items do |builder| %>
+      <%= render 'recipe_item_fields', f: builder %>
     <div id="links">
-      <%= link_to_add_association "add Ingredient", f, :ingredients %><br/>
+      <%= link_to_add_association "add Ingredient", f, :recipe_items %><br/>
     </div>
     <% end %>
       </div>
