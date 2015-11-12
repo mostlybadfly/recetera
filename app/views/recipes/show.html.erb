@@ -4,8 +4,8 @@
 
 <p>
   <strong>Ingredients:</strong><br/>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <%= "#{ingredient.quantity} #{ingredient.measurement} #{ingredient.name}" %><br/>
+  <% @recipe.recipe_items.each do |recipe_item| %>
+    <%= "#{recipe_item.amount} #{recipe_item.ingredient.name}" %><br/>
   <% end %>
 </p>
 
