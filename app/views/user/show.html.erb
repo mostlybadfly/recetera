@@ -1,0 +1,10 @@
+<h2><%= @user.email %>'s Recipes</h22>
+<% @user.recipes.each do |recipe| %>
+  <ul class="list-unstyled">
+    <li>
+      <h3>
+        <%= link_to recipe.title, recipe_path(recipe) %>
+      </h3>
+    </li>
+  </ul>
+<% end %>
