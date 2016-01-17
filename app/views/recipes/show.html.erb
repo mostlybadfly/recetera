@@ -1,24 +1,28 @@
-<h2 class="page-heading">
-  <%= @recipe.title %>
-</h2>
+<div class="container">
+  <div class="jumbotron">
+      <h2 class="page-heading">
+      <%= @recipe.title %>
+    </h2>
 
-<p>
-  <strong>Ingredients:</strong><br/>
-  <% @recipe.recipe_items.each do |recipe_item| %>
-    <%= "#{recipe_item.amount} #{recipe_item.ingredient.name}" %><br/>
-  <% end %>
-</p>
+    <p>
+      <strong>Ingredients:</strong><br/>
+      <% @recipe.recipe_items.each do |recipe_item| %>
+        <%= "#{recipe_item.amount} #{recipe_item.ingredient.name}" %><br/>
+      <% end %>
+    </p>
 
-<p>
-  <strong>Instructions:</strong><br/>
-  <% @instructions.each do |instruction| %>
-    <%= instruction %><br/>
-  <% end %>
-</p>
-<br/>
-<%= link_to 'Back', recipes_path, class: "btn btn-default" %>
-<%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-info" %>
-<%= link_to 'Destroy', recipe_path(@recipe),
-    method: :delete,
-    data: { confirm: 'For real?' },
-    class: "btn btn-danger" %>
+    <p>
+      <strong>Instructions:</strong><br/>
+      <% @instructions.each do |instruction| %>
+        <%= instruction %><br/>
+      <% end %>
+    </p>
+    <br/>
+    <%= link_to 'Back', recipes_path, class: "btn btn-default" %>
+    <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-info" %>
+    <%= link_to 'Destroy', recipe_path(@recipe),
+        method: :delete,
+        data: { confirm: 'For real?' },
+        class: "btn btn-danger" %>
+  </div>
+</div>
