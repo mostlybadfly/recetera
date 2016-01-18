@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
   def create
     params[:recipe][:instructions] = params[:recipe][:instructions].to_json
     @recipe = current_user.recipes.build(recipe_params)
+    @recipe.published = true
    
     if @recipe.save
       redirect_to @recipe 
@@ -35,6 +36,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     
     if @recipe.update(recipe_params)
+      @recipe.published = true
       redirect_to @recipe 
     else
       render "edit"
