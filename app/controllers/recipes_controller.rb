@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
   def create
     params[:recipe][:instructions] = params[:recipe][:instructions].to_json
     @recipe = current_user.recipes.build(recipe_params)
-    @recipe.published = true
+    @recipe.published = true if params[:published] == "true"
    
     if @recipe.save
       redirect_to @recipe 
@@ -48,6 +48,17 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     redirect_to recipes_path
+  end
+  
+  def unpublish
+    params[:recipe][:instructions] = params[:recipe][:instructions].to_json
+    @recipe = current_user.recipes.build(recipe_params)
+   
+    if @recipe.save
+      redirect_to @recipe 
+    else
+      render "new"
+    end
   end
 
   private

@@ -37,6 +37,7 @@
       <%= link_to "Remove Step", "javascript:void(0)", class: "remove_step" %>
     </div>
     <%= link_to "Next Step", "javascript:void(0)", id: "new_step" %><br/>
-    <%= f.submit "Publish", :class => 'btn btn-default' %>
+    <%= f.button "Publish", :name => "published", :value => "true" %>
+    <%= f.button "Save Draft", :name => "published", :value => "false" %>
   </div>
 <% end %>
