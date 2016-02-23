@@ -35,6 +35,7 @@ class RecipesController < ApplicationController
     params[:recipe][:instructions] = params[:recipe][:instructions].to_json
     @recipe = Recipe.find(params[:id])
     @recipe.published = true if params[:published] == "true"
+    @recipe.toggle(:published) if params[:published] == "false"
 
     if @recipe.update(recipe_params)
       redirect_to @recipe
@@ -48,17 +49,6 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     redirect_to recipes_path
-  end
-
-  def unpublish
-    params[:recipe][:instructions] = params[:recipe][:instructions].to_json
-    @recipe = current_user.recipes.build(recipe_params)
-
-    if @recipe.save
-      redirect_to @recipe
-    else
-      render "new"
-    end
   end
 
   private
