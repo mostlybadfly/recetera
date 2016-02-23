@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @instructions = JSON.parse(@recipe.instructions)
   end
-  
+
   def new
    @recipe = Recipe.new
    @recipe.recipe_items.build.build_ingredient
@@ -22,9 +22,10 @@ class RecipesController < ApplicationController
   def create
     params[:recipe][:instructions] = params[:recipe][:instructions].to_json
     @recipe = current_user.recipes.build(recipe_params)
-   
+    @recipe.published = true if params[:published] == "true"
+
     if @recipe.save
-      redirect_to @recipe 
+      redirect_to @recipe
     else
       render "new"
     end
@@ -33,9 +34,11 @@ class RecipesController < ApplicationController
   def update
     params[:recipe][:instructions] = params[:recipe][:instructions].to_json
     @recipe = Recipe.find(params[:id])
-    
+    @recipe.published = true if params[:published] == "true"
+    @recipe.toggle(:published) if params[:published] == "false"
+
     if @recipe.update(recipe_params)
-      redirect_to @recipe 
+      redirect_to @recipe
     else
       render "edit"
     end

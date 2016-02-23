@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 
   get '/about' => 'static_pages#about'
 
-  resources :recipes
+  resources :recipes do
+    member do
+      post :unpublish
+    end
+  end
+
   get '/profile' => 'user#show'
 end
