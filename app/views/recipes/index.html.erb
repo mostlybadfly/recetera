@@ -10,11 +10,13 @@
       </tr>
 
       <% @recipes.each_with_index do |recipe, i| %>
-        <tr>
-          <td><%= i+1 %></td>
-          <td><%= recipe.title %></td>
-          <td><%= link_to 'View Recipe', recipe_path(recipe) %></td>
-        </tr>
+        <% if recipe.published == true %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><%= recipe.title %></td>
+            <td><%= link_to 'View Recipe', recipe_path(recipe) %></td>
+          </tr>
+        <% end %>
       <% end %>
     </table>
     <br/>

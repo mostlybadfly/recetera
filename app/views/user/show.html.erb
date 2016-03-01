@@ -1,14 +1,25 @@
 <div class="container">
   <div class="jumbotron">
     <h2><%= @user.email %>'s Recipes</h2>
+    <h3> Published Recipes </h3>
     <% @user.recipes.each do |recipe| %>
-      <ul class="list-unstyled">
-        <li>
-          <h3>
+      <% if recipe.published == true %>
+        <ul class="list-unstyled">
+          <li>
             <%= link_to recipe.title, recipe_path(recipe) %>
-          </h3>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+    <h3> Unublished Recipes </h3>
+    <% @user.recipes.each do |recipe| %>
+      <% if recipe.published == false %>
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to recipe.title, recipe_path(recipe) %>
+          </li>
+        </ul>
+      <% end %>
     <% end %>
     <br>
     <%= link_to "Account Settings", edit_user_registration_path, :class => "btn btn-sm btn-warning pull-right" %>
