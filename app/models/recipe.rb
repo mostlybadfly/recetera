@@ -7,4 +7,12 @@ class Recipe < ActiveRecord::Base
 
   validates :title, presence: true
   validates :instructions, presence: true
+
+  def self.published_recipes
+    Recipe.where("published = ?", true)
+  end
+
+  def self.unpublished_recipes
+    Recipe.where("published =?", false)
+  end
 end

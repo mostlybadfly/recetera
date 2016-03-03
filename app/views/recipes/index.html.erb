@@ -9,14 +9,12 @@
         <th class="col-sm-2">Link</th>
       </tr>
 
-      <% @recipes.each_with_index do |recipe, i| %>
-        <% if recipe.published == true %>
-          <tr>
-            <td><%= i+1 %></td>
-            <td><%= recipe.title %></td>
-            <td><%= link_to 'View Recipe', recipe_path(recipe) %></td>
-          </tr>
-        <% end %>
+      <% @recipes.published_recipes.each_with_index do |recipe, i| %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= recipe.title %></td>
+          <td><%= link_to 'View Recipe', recipe_path(recipe) %></td>
+        </tr>
       <% end %>
     </table>
     <br/>
