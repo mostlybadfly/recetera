@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
   def create
     params[:recipe][:instructions] = params[:recipe][:instructions].to_json
     @recipe = current_user.recipes.build(recipe_params)
+    build_recipe_ingredients
     @recipe.published = true if params[:published] == "true"
 
     if @recipe.save
@@ -50,6 +51,12 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     redirect_to recipes_path
+  end
+
+  def build_recipe_ingredients
+    @recipe.recipe_items.each do |recipe_item|
+      recipe_item.ingredient = Ingredient.find_or_create_by(name: recipe_item.ingredient.name)
+    end
   end
 
   private
