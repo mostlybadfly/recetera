@@ -20,4 +20,12 @@ describe Recipe do
     recipe.valid?
     expect(recipe.errors[:instructions]).to include("can't be blank")
   end
+
+  it "is invalid without at least one recipe item" do
+    recipe = Recipe.new(
+      title: "Apple Pie",
+      instructions: "Peel the apples.")
+    recipe.valid?
+    expect(recipe.errors[:recipe_items]).to include("can't be blank")
+  end
 end
